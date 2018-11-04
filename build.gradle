@@ -13,9 +13,43 @@ repositories {
 
 ext {
     hadoopVersion = '2.8.5'
+
+    packageName = 'com.avalonconsult.hadoop.mapreduce'
 }
 
 dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     implementation group: 'org.apache.hadoop', name: 'hadoop-client', version: hadoopVersion
+}
+
+task runCustomerDriver(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+
+    main = "${packageName}.CustomerDriver"
+
+    args = ['inFiles/customer', 'outFiles/']
+}
+
+task runDateGrouperDriver(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+
+    main = "${packageName}.DateGrouperDriver"
+
+    args = ['inFiles/dates', 'outFiles/']
+}
+
+task runStoreSumDriver(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+
+    main = "${packageName}.StoreSumDriver"
+
+    args = ['inFiles/stores', 'outFiles/']
+}
+
+task runTempMinMaxAvgDriver(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+
+    main = "${packageName}.TempMinMaxAvgDriver"
+
+    args = ['inFiles/temp', 'outFiles/']
 }
