@@ -13,3 +13,5 @@ The following classes are available
 |`DateGrouperDriver`|`inFiles/dates`|`runDateGrouperDriver`|
 |`StoreSumDriver`|`inFiles/stores`|`runStoreSumDriver`|
 |`CustomerDriver`|`inFiles/temp`|`runTempMinMaxAvgDriver`|
+
+Each task will write into (and overwrite) the `outFiles/` directory.
