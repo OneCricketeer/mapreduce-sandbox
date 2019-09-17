@@ -20,8 +20,8 @@ import java.util.regex.Pattern;
 
 public class PatternRecordReader extends RecordReader<LongWritable, Text> {
 
-    public static final String RECORD_DELIMITER = "record.delimter.pattern";
-    public static final String RECORD_DELIMITER_KEEP = "record.delimter.keep-pattern";
+    public static final String RECORD_DELIMITER = "record.delimiter.pattern";
+    public static final String RECORD_DELIMITER_KEEP = "record.delimiter.keep-pattern";
 
     private static final Log LOG = LogFactory.getLog(PatternRecordReader.class);
 
