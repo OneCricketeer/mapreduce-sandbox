@@ -53,3 +53,11 @@ task runTempMinMaxAvgDriver(type: JavaExec) {
 
     args = ['inFiles/temp', 'outFiles/']
 }
+
+task runWeatherMultiDriver(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+
+    main = "${packageName}.WeatherMultiDriver"
+
+    args = ['inFiles/weather', 'outFiles/']
+}
