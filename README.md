@@ -12,7 +12,7 @@ The following classes are available
 |`CustomerDriver`|`inFiles/customer`|`runCustomerDriver`|
 |`DateGrouperDriver`|`inFiles/dates`|`runDateGrouperDriver`|
 |`StoreSumDriver`|`inFiles/stores`|`runStoreSumDriver`|
-|`CustomerDriver`|`inFiles/temp`|`runTempMinMaxAvgDriver`|
+|`TempMinMaxAvgDriver`|`inFiles/temp`|`runTempMinMaxAvgDriver`|
 |`WeatherMultiDriver`|`inFiles/weather`|`runWeatherMultiDriver`|
 
 Each task will write into (and overwrite) the `outFiles/` directory.
