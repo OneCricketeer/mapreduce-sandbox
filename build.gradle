@@ -1,10 +1,14 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
 group 'com.avalonconsult.hadoop'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-apply plugin: 'idea'
-
-sourceCompatibility = JavaVersion.VERSION_1_8
+compileJava {
+    options.release = 11
+}
 
 repositories {
     mavenLocal()
@@ -18,14 +22,15 @@ ext {
 }
 
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
-    implementation group: 'org.apache.hadoop', name: 'hadoop-client', version: hadoopVersion
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    implementation "org.apache.hadoop:hadoop-client:${hadoopVersion}"
 }
 
 task runCustomerDriver(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 
-    main = "${packageName}.CustomerDriver"
+    mainClass = "${packageName}.CustomerDriver"
 
     args = ['inFiles/customer', 'outFiles/']
 }
@@ -33,7 +38,7 @@ task runCustomerDriver(type: JavaExec) {
 task runDateGrouperDriver(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 
-    main = "${packageName}.DateGrouperDriver"
+    mainClass = "${packageName}.DateGrouperDriver"
 
     args = ['inFiles/dates', 'outFiles/']
 }
@@ -41,7 +46,7 @@ task runDateGrouperDriver(type: JavaExec) {
 task runStoreSumDriver(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 
-    main = "${packageName}.StoreSumDriver"
+    mainClass = "${packageName}.StoreSumDriver"
 
     args = ['inFiles/stores', 'outFiles/']
 }
@@ -49,7 +54,7 @@ task runStoreSumDriver(type: JavaExec) {
 task runTempMinMaxAvgDriver(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 
-    main = "${packageName}.TempMinMaxAvgDriver"
+    mainClass = "${packageName}.TempMinMaxAvgDriver"
 
     args = ['inFiles/temp', 'outFiles/']
 }
@@ -57,7 +62,15 @@ task runTempMinMaxAvgDriver(type: JavaExec) {
 task runWeatherMultiDriver(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
 
-    main = "${packageName}.WeatherMultiDriver"
+    mainClass = "${packageName}.WeatherMultiDriver"
 
     args = ['inFiles/weather', 'outFiles/']
+}
+
+task runWebLogDriver(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+
+    mainClass = "${packageName}.WebLogDriver"
+
+    args = ['inFiles/web-logs', 'outFiles/']
 }
